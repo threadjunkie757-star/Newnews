@@ -34,12 +34,13 @@ a{text-decoration:none;}
 }
 
 /* ── SCROLL OFFSET FOR FIXED NAV ── */
-#home,#how,#products,#services,#gallery,#about,#faq,#quote {
-  scroll-margin-top: 72px;
+#home,#how,#products,#services,#gallery,#about,#faq,#quote{
+  scroll-margin-top:72px;
 }
+/* FIX 10: bumped mobile scroll-margin-top from 60px to 68px for breathing room */
 @media(max-width:768px){
-  #home,#how,#products,#services,#gallery,#about,#faq,#quote {
-    scroll-margin-top: 68px;
+  #home,#how,#products,#services,#gallery,#about,#faq,#quote{
+    scroll-margin-top:68px;
   }
 }
 
@@ -52,7 +53,7 @@ nav{
   padding:0 40px;z-index:1000;
   transition:box-shadow .3s;
 }
-nav.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.08);}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.09);}
 .logo{display:flex;align-items:center;gap:10px;}
 .logo img{height:32px;width:auto;object-fit:contain;}
 .logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.15rem;color:var(--navy);letter-spacing:.05em;display:block;}
@@ -68,32 +69,34 @@ nav.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.08);}
 .hamburger[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0;}
 .hamburger[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.mob{position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);z-index:999;max-height:0;overflow:hidden;pointer-events:none;transition:max-height .36s cubic-bezier(.4,0,.2,1),top 0s;}
+
+/* ── MOBILE MENU ── */
+.mob{position:fixed;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);z-index:999;max-height:0;overflow:hidden;pointer-events:none;transition:max-height .36s cubic-bezier(.4,0,.2,1);}
 .mob.open{max-height:480px;pointer-events:all;}
 .mob a{display:block;padding:13px 28px;font-size:.87rem;font-weight:600;color:var(--navy);border-bottom:1px solid var(--off2);text-transform:uppercase;letter-spacing:.06em;transition:background .15s;}
 .mob a:hover{background:var(--off);}
-.mob .mob-cta{background:var(--navy);color:#fff;text-align:center;margin:12px 24px 16px;border-radius:10px;border:none;}
+.mob .mob-cta{background:var(--navy);color:#fff!important;text-align:center;display:block;margin:12px 24px 16px;border-radius:10px;border:none;}
 
 /* ── HERO ── */
 .hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(14,22,35,.88) 44%,rgba(14,22,35,.28) 100%);}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(14,22,35,.92) 42%,rgba(14,22,35,.35) 100%);}
 .hero-inner{position:relative;z-index:1;padding:120px 80px 80px;max-width:640px;}
 .hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
 .hero-tag::before{content:'';width:28px;height:1.5px;background:var(--gold);}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.2rem,6.5vw,5.8rem);line-height:.92;letter-spacing:.02em;color:#fff;margin-bottom:20px;}
 .hero h1 span{color:var(--gold);}
 .hero-sub{font-size:.98rem;color:rgba(255,255,255,.68);line-height:1.74;max-width:440px;margin-bottom:22px;}
-.hero-timing{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:#86efac;margin-bottom:30px;}
-.timing-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.2);}50%{box-shadow:0 0 0 7px rgba(34,197,94,.06);}}
+.hero-timing{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--gold2);margin-bottom:30px;}
+.timing-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;flex-shrink:0;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(198,165,91,.25);}50%{box-shadow:0 0 0 8px rgba(198,165,91,.06);}}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
 
 /* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.86rem;font-weight:700;cursor:pointer;border:none;transition:all .2s;white-space:nowrap;}
 .btn-gold{background:var(--gold);color:var(--navy);}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(198,165,91,.35);}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(198,165,91,.4);}
 .btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.38);}
 .btn-outline-white:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 .btn-navy{background:var(--navy);color:#fff;}
@@ -101,18 +104,61 @@ nav.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.08);}
 .btn-sm{padding:10px 20px;font-size:.8rem;}
 
 /* ── TRUST BAR ── */
-.trust{background:var(--navy);padding:16px 40px;display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap;}
-.trust-item{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.5);font-size:.78rem;font-weight:600;white-space:nowrap;}
-.trust-item strong{color:#fff;font-size:.84rem;}
-.trust-sep{width:1px;height:24px;background:rgba(255,255,255,.1);}
+.trust{
+  background:var(--navy);
+  padding:14px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.trust-item{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.5);
+  font-size:.77rem;font-weight:600;
+  white-space:nowrap;
+  padding:6px 20px;
+}
+.trust-item strong{color:#fff;font-size:.82rem;}
+.trust-sep{width:1px;height:20px;background:rgba(255,255,255,.1);flex-shrink:0;}
 
 /* ── MARQUEE ── */
-.marquee{background:var(--gold);overflow:hidden;padding:10px 0;}
+.marquee{
+  background:var(--gold);
+  overflow:hidden;
+  padding:9px 0;
+  display:block;
+  width:100%;
+  position:relative;
+  z-index:0;
+}
 .marquee:hover .mtrack{animation-play-state:paused;}
-.mtrack{display:inline-flex;white-space:nowrap;animation:mscroll 32s linear infinite;}
-.mitem{display:inline-flex;align-items:center;gap:14px;padding:0 18px;font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);}
-.msep{opacity:.35;font-size:.35rem;}
-@keyframes mscroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.mtrack{
+  display:flex;
+  flex-wrap:nowrap;
+  width:max-content;
+  will-change:transform;
+  animation:mscroll 32s linear infinite;
+}
+.mitem{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:0 18px;
+  font-size:.6rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--navy);
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.msep{opacity:.3;font-size:.35rem;}
+@keyframes mscroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
 
 /* ── SHARED SECTION ── */
 .sec{padding:80px 40px;}
@@ -120,91 +166,100 @@ nav.scrolled{box-shadow:0 1px 16px rgba(0,0,0,.08);}
 .sec.bg-navy{background:var(--navy);}
 .si{max-width:1140px;margin:0 auto;}
 .lbl{display:block;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.lbl-light{color:rgba(198,165,91,.75);}
+.lbl-light{color:rgba(198,165,91,.8);}
+.sec-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.5vw,2.9rem);line-height:1;letter-spacing:.02em;color:var(--navy);margin-bottom:10px;}
+.sec-h2.light{color:#fff;}
 h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3.5vw,2.9rem);line-height:1;letter-spacing:.02em;color:var(--navy);margin-bottom:10px;}
 h2.light{color:#fff;}
 .sub{font-size:.9rem;color:var(--muted);line-height:1.76;max-width:500px;margin-bottom:38px;}
 .sub.light{color:rgba(255,255,255,.48);}
 .sub.center{margin-left:auto;margin-right:auto;text-align:center;}
 
-/* ── HOW IT WORKS ── */
-.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;position:relative;}
-.how-grid::before{content:'';position:absolute;top:24px;left:calc(12.5% + 14px);right:calc(12.5% + 14px);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-.how-step{text-align:center;}
-.how-n{width:50px;height:50px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:1.35rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;z-index:1;box-shadow:0 4px 14px rgba(14,22,35,.2);}
-.how-step h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.how-step p{font-size:.81rem;color:var(--muted);line-height:1.65;}
-.how-cta{margin-top:40px;background:var(--navy);border-radius:var(--rl);padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-.how-cta p{font-size:.88rem;color:rgba(255,255,255,.55);}
-.how-cta strong{color:#fff;}
-.how-cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;}
+/* ── HOW IT WORKS / INFOGRAPHIC IMAGES ── */
+.how-img-wrap{line-height:0;padding:0;overflow:hidden;}
+.how-img-wrap img{width:100%;display:block;}
+.how-img-wrap img[src=""],
+.how-img-wrap img:not([src]){display:none;}
+.how-img-wrap:has(img[src=""]),
+.how-img-wrap:empty{display:none;}
 
 /* ── PRODUCTS ── */
-.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.prod-card{background:#fff;border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s;}
-.prod-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+/* FIX 9: prod-card as anchor — reset anchor defaults, keep card styles */
+a.prod-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--rl);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:box-shadow .25s,transform .25s;
+  color:inherit;
+  cursor:pointer;
+}
+a.prod-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.1);}
+a.prod-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 .prod-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:14px 16px 0;}
 .prod-name{font-size:.88rem;font-weight:700;color:var(--navy);}
-.prod-tag{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);background:rgba(198,165,91,.1);border:1px solid rgba(198,165,91,.2);padding:2px 8px;border-radius:100px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.prod-tag{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);background:rgba(198,165,91,.1);border:1px solid rgba(198,165,91,.22);padding:2px 8px;border-radius:100px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
 .prod-img{margin:12px;border-radius:10px;overflow:hidden;aspect-ratio:1/1;background:var(--off);position:relative;flex:1;}
 .prod-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;}
-.prod-card:hover .prod-img img{transform:scale(1.04);}
+/* FIX 7: removed dead .prod-img::after{content:attr(data-label)} rule */
+a.prod-card:hover .prod-img img{transform:scale(1.04);}
 .prod-foot{padding:8px 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
-.prod-price{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--navy);letter-spacing:.04em;flex-shrink:0;}
-.prod-methods{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;flex:1;}
+.prod-methods{display:flex;gap:4px;flex-wrap:wrap;}
 .prod-method{font-size:.58rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--off2);padding:3px 8px;border-radius:100px;white-space:nowrap;}
-
-/* ── SERVICES ── */
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-.svc{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px 20px;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
-.svc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
-.svc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08);border-color:rgba(198,165,91,.3);}
-.svc:hover::after{transform:scaleX(1);}
-.svc-icon{font-size:1.7rem;margin-bottom:12px;}
-.svc h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
-.svc p{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:10px;}
-.svc-tag{display:inline-block;font-size:.63rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);background:rgba(198,165,91,.1);padding:2px 9px;border-radius:100px;}
 
 /* ── GALLERY ── */
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px;}
 .gal-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;position:relative;background:var(--off2);transition:transform .25s,box-shadow .25s;}
 .gal-item:first-child{grid-column:span 2;aspect-ratio:16/9;}
 .gal-item:hover{transform:scale(1.015);box-shadow:0 10px 32px rgba(0,0,0,.12);}
-.gal-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-
-/* ── BRANDS ── */
-.brand-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
-.brand-chip{font-size:.82rem;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--border);padding:7px 16px;border-radius:8px;transition:border-color .2s,box-shadow .2s;}
-.brand-chip:hover{border-color:var(--gold);box-shadow:0 2px 12px rgba(198,165,91,.12);}
+.gal-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;cursor:zoom-in;} /* FIX 3: cursor hint */
+.gal-item img[src=""],
+.gal-item img:not([src]){display:none;}
 
 /* ── INDUSTRIES ── */
-.ind-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
-.ind-chip{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.1);padding:7px 15px;border-radius:100px;transition:color .2s,border-color .2s,background .2s;}
-.ind-chip:hover{color:var(--gold);border-color:rgba(198,165,91,.3);background:rgba(198,165,91,.07);}
+.ind-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
+.ind-chip{
+  font-size:.79rem;font-weight:600;
+  color:rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.1);
+  padding:6px 14px;border-radius:100px;
+  transition:color .2s,border-color .2s,background .2s;
+}
+.ind-chip:hover{color:var(--gold);border-color:rgba(198,165,91,.35);background:rgba(198,165,91,.07);}
 
 /* ── ABOUT ── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-.about-body p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:12px;}
+.about-body p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:12px;}
 .checks{display:flex;flex-direction:column;gap:9px;margin:22px 0 26px;}
-.check{display:flex;align-items:center;gap:11px;font-size:.87rem;color:#1a1a1a;}
-.check-icon{width:20px;height:20px;border-radius:50%;background:rgba(14,22,35,.07);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--navy);flex-shrink:0;}
-.vet-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);padding:7px 16px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+.check{display:flex;align-items:center;gap:11px;font-size:.87rem;}
+.check-icon{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;flex-shrink:0;}
+.vet-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(198,165,91,.12);border:1px solid rgba(198,165,91,.25);color:var(--gold);padding:7px 16px;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
 .about-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
 .about-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--off2);}
 .about-img img{width:100%;height:100%;object-fit:cover;}
+.about-img img[src=""],.about-img img:not([src]){display:none;}
 
 /* ── STATS STRIP ── */
-.stats-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);border-radius:var(--rl);overflow:hidden;margin-top:44px;}
+.stats-strip{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--rl);
+  overflow:hidden;margin-top:44px;
+}
 .stat-item{background:rgba(255,255,255,.04);padding:28px 20px;text-align:center;}
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--gold);line-height:1;margin-bottom:4px;}
-.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.09em;line-height:1.4;}
+.stat-lbl{font-size:.7rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.09em;line-height:1.4;}
 
 /* ── WHY ── */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.why-item{padding:24px 20px;border-radius:var(--r);border:1px solid var(--border);background:#fff;transition:border-color .2s,transform .2s;}
-.why-item:hover{border-color:rgba(198,165,91,.38);transform:translateY(-3px);}
+.why-item{padding:24px 20px;border-radius:var(--r);border:1px solid var(--border);background:#fff;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.why-item:hover{border-color:rgba(198,165,91,.4);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.07);}
 .why-item.dark{background:var(--navy);border-color:transparent;}
-.why-item.dark:hover{transform:translateY(-3px);}
+.why-item.dark:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.18);}
 .why-icon{font-size:1.6rem;margin-bottom:12px;}
 .why-item h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
 .why-item.dark h3{color:var(--gold);}
@@ -215,13 +270,13 @@ h2.light{color:#fff;}
 .turnaround-band{background:var(--navy);padding:40px;}
 .turnaround-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;}
 .ta-copy h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;letter-spacing:.03em;margin-bottom:8px;}
-.ta-copy p{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.7;}
+.ta-copy p{font-size:.88rem;color:rgba(255,255,255,.48);line-height:1.7;}
 .ta-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .ta-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:20px;}
-.ta-card.gold{background:rgba(198,165,91,.1);border-color:rgba(198,165,91,.22);}
+.ta-card.gold{background:rgba(198,165,91,.1);border-color:rgba(198,165,91,.25);}
 .ta-card-days{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:4px;}
 .ta-card-label{font-size:.8rem;font-weight:700;color:#fff;margin-bottom:4px;}
-.ta-card-note{font-size:.75rem;color:rgba(255,255,255,.38);}
+.ta-card-note{font-size:.75rem;color:rgba(255,255,255,.36);}
 .ta-card-full{grid-column:span 2;}
 
 /* ── FAQ ── */
@@ -290,7 +345,8 @@ h2.light{color:#fff;}
 .thumb.failed .thumb-state{color:#f87171;}
 .thumb-rm{position:absolute;top:-5px;right:-5px;background:#f87171;border:2px solid var(--navy);color:#fff;width:18px;height:18px;border-radius:50%;font-size:.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:transform .15s,background .15s;}
 .thumb-rm:hover{transform:scale(1.15);background:#ef4444;}
-/* Lightbox */
+
+/* ── LIGHTBOX ── */
 .img-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;padding:24px;}
 .img-lightbox.open{display:flex;}
 .img-lightbox img{max-width:90vw;max-height:88vh;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,.6);object-fit:contain;}
@@ -303,22 +359,23 @@ h2.light{color:#fff;}
 .form-foot{display:flex;align-items:center;gap:16px;margin-top:6px;flex-wrap:wrap;}
 .form-note{font-size:.74rem;color:rgba(255,255,255,.25);}
 .form-note a{color:var(--gold);font-weight:700;}
-.success-box{display:none;text-align:center;padding:44px 20px;border:1px solid rgba(198,165,91,.16);border-radius:14px;background:rgba(198,165,91,.05);margin-top:20px;}
+.success-box{display:none;text-align:center;padding:44px 20px;border:1px solid rgba(198,165,91,.18);border-radius:14px;background:rgba(198,165,91,.06);margin-top:20px;}
 .success-icon{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;margin:0 auto 16px;}
 .success-box h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:#fff;margin-bottom:8px;}
 .success-box p{color:rgba(255,255,255,.43);font-size:.87rem;line-height:1.7;}
 .success-box a{color:var(--gold);font-weight:700;}
 
 /* ── PRE-FOOTER CTA ── */
-.prefooter{background:var(--gold);padding:56px 40px;}
+.prefooter{background:var(--navy);padding:56px 40px;border-top:1px solid rgba(255,255,255,.06);}
 .prefooter-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
-.prefooter h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--navy);letter-spacing:.02em;line-height:1;}
-.prefooter p{font-size:.9rem;color:rgba(14,22,35,.65);margin-top:6px;max-width:420px;}
+.prefooter h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;letter-spacing:.02em;line-height:1;}
+.prefooter h3 span{color:var(--gold);}
+.prefooter p{font-size:.9rem;color:rgba(255,255,255,.4);margin-top:6px;max-width:420px;}
 .prefooter-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0;}
-.btn-navy-solid{background:var(--navy);color:#fff;border:none;}
-.btn-navy-solid:hover{opacity:.88;transform:translateY(-2px);}
-.btn-outline-navy{background:transparent;color:var(--navy);border:2px solid var(--navy);}
-.btn-outline-navy:hover{background:rgba(14,22,35,.08);transform:translateY(-2px);}
+.btn-navy-solid{background:var(--gold);color:var(--navy);border:none;font-weight:700;}
+.btn-navy-solid:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-outline-navy{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);}
+.btn-outline-navy:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 
 /* ── FOOTER ── */
 footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
@@ -326,7 +383,9 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
   max-width:1140px;margin:0 auto;
   padding:64px 40px 48px;
   display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  /* FIX 5: was 1.4fr 1fr — foot-col had span:2 which broke to row 2.
+     Changed to 3 columns so brand + cities display side-by-side correctly */
+  grid-template-columns:1.4fr 1fr 1fr;
   gap:48px;
   border-bottom:1px solid rgba(255,255,255,.06);
 }
@@ -336,7 +395,7 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 .foot-contact a{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.4);font-size:.82rem;font-weight:600;margin-bottom:11px;transition:color .15s;}
 .foot-contact a:hover{color:var(--gold);}
 .foot-contact-icon{font-size:.9rem;width:16px;text-align:center;flex-shrink:0;}
-.foot-vet{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);padding:7px 14px;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;}
+.foot-vet{display:inline-flex;align-items:center;gap:7px;background:rgba(198,165,91,.1);border:1px solid rgba(198,165,91,.2);color:var(--gold);padding:7px 14px;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;}
 .foot-social{display:flex;gap:8px;margin-top:4px;}
 .foot-social a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.38);transition:background .2s,border-color .2s,color .2s;}
 .foot-social a:hover{background:rgba(198,165,91,.12);border-color:rgba(198,165,91,.3);color:var(--gold);}
@@ -346,18 +405,21 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 .foot-col a:hover{color:var(--gold);padding-left:3px;}
 .foot-col a::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(198,165,91,.3);flex-shrink:0;transition:background .15s;}
 .foot-col a:hover::before{background:var(--gold);}
-.foot-col .foot-highlight{color:var(--gold);font-weight:700;}
+.foot-col .foot-highlight{color:var(--gold)!important;font-weight:700;}
 .foot-bottom{max-width:1140px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;font-size:.72rem;color:rgba(255,255,255,.18);flex-wrap:wrap;gap:8px;}
 .foot-bottom a{color:rgba(198,165,91,.5);font-weight:600;transition:color .15s;}
 .foot-bottom a:hover{color:var(--gold);}
 .foot-bottom-links{display:flex;gap:20px;}
 
-/* ── STICKY ── */
+/* ── STICKY BUTTONS ── */
 .sticky{position:fixed;bottom:20px;right:20px;z-index:100;display:flex;flex-direction:column;gap:10px;align-items:flex-end;}
-.sticky a{display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;box-shadow:0 4px 18px rgba(0,0,0,.16);transition:transform .2s;}
+.sticky a{display:flex;align-items:center;gap:8px;padding:11px 18px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s;}
 .sticky-call{background:#fff;color:var(--navy);border:1px solid var(--border);}
-.sticky-quote{background:var(--navy);color:#fff;}
-.sticky a:hover{transform:scale(1.04);}
+.sticky-quote{background:var(--gold);color:var(--navy)!important;}
+.sticky a:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(0,0,0,.22);}
+
+/* ── FOCUS VISIBLE ── */
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;}
 
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
@@ -366,19 +428,15 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 
 /* ══════ RESPONSIVE ══════ */
 @media(max-width:1024px){
-  .svc-grid{grid-template-columns:repeat(2,1fr);}
   .prod-grid{grid-template-columns:repeat(2,1fr);}
   .why-grid{grid-template-columns:repeat(2,1fr);}
   .stats-strip{grid-template-columns:repeat(3,1fr);}
   .about-grid{grid-template-columns:1fr;gap:36px;}
   .turnaround-inner{grid-template-columns:1fr;}
-  .foot-inner{grid-template-columns:1fr 1fr;gap:32px;}
-  .foot-inner>:first-child{grid-column:span 2;}
+  /* FIX 5 continued: collapse 3-col footer to 1-col at tablet */
+  .foot-inner{grid-template-columns:1fr;gap:32px;}
 }
-@media(max-width:900px){
-  .how-grid::before{display:none;}
-  .how-grid{grid-template-columns:1fr 1fr;gap:20px;}
-}
+
 @media(max-width:768px){
   nav{padding:0 20px;height:60px;}
   .nav-links{display:none;}
@@ -388,14 +446,37 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
   .hero-inner{padding:90px 24px 60px;}
   .hero h1{font-size:clamp(2.8rem,10vw,3.8rem);}
   .hero-btns{flex-direction:column;align-items:flex-start;}
-  .trust{gap:16px;padding:14px 20px;}
+
+  /* FIX 4: trust bar mobile grid — correct border-right only on left-column items.
+     DOM order: trust-item(1) sep(2) trust-item(3) sep(4) trust-item(5) sep(6)
+                trust-item(7) sep(8) trust-item(9) sep(10) trust-item(11)
+     display:none on seps removes them from grid, so trust-items fill 2-col grid:
+     left col = DOM children 1, 5, 9 */
+  .trust{
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+  }
   .trust-sep{display:none;}
+  .trust-item{
+    padding:12px 16px;
+    font-size:.74rem;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    justify-content:center;
+    text-align:center;
+    flex-direction:column;
+    gap:3px;
+  }
+  /* Only left-column trust items get right border */
+  .trust > div:nth-child(1),
+  .trust > div:nth-child(5),
+  .trust > div:nth-child(9){border-right:1px solid rgba(255,255,255,.06);}
+
   .prod-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
   .prod-top{padding:11px 12px 0;}
   .prod-img{margin:9px;}
   .prod-foot{padding:8px 12px 13px;}
-  .prod-price{font-size:1.25rem;}
-  .svc-grid{grid-template-columns:repeat(2,1fr);}
   .gal-grid{grid-template-columns:1fr 1fr;gap:8px;}
   .gal-item:first-child{grid-column:span 2;}
   .stats-strip{grid-template-columns:repeat(2,1fr);}
@@ -406,8 +487,7 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
   .form-grid{grid-template-columns:1fr;}
   .prefooter{padding:40px 20px;}
   .prefooter-inner{flex-direction:column;align-items:flex-start;}
-  .foot-inner{grid-template-columns:1fr 1fr;gap:28px;padding:40px 20px 32px;}
-  .foot-inner>:first-child{grid-column:span 2;}
+  .foot-inner{grid-template-columns:1fr;gap:28px;padding:40px 20px 32px;}
   .foot-bottom{padding:16px 20px;flex-direction:column;align-items:flex-start;}
   .foot-bottom-links{gap:12px;}
   .sticky{bottom:14px;right:14px;}
@@ -416,16 +496,12 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 }
 @media(max-width:480px){
   .prod-grid{grid-template-columns:1fr 1fr;}
-  .svc-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
   .gal-grid{grid-template-columns:1fr;}
   .gal-item:first-child{grid-column:span 1;aspect-ratio:4/3;}
-  .stats-strip{grid-template-columns:1fr 1fr;}
-  .how-grid{grid-template-columns:1fr;}
+  .stats-strip{grid-template-columns:repeat(2,1fr);}
   .ta-cards{grid-template-columns:1fr;}
   .ta-card-full{grid-column:span 1;}
-  .foot-inner{grid-template-columns:1fr;}
-  .foot-inner>:first-child{grid-column:span 1;}
   .prod-method{font-size:.52rem;padding:2px 6px;}
   .upload-zone{padding:20px 16px;}
   .thumbs{gap:8px;}
@@ -477,7 +553,7 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <img src="hero-photo.png" alt="Custom apparel Hampton Roads Virginia" loading="eager">
+    <img src="hero-photo.png" alt="Real teams. Real results. Custom branded apparel by Quality Silkscreens Hampton Roads VA" loading="eager">
   </div>
   <div class="hero-inner">
     <p class="hero-tag">Veteran-Owned &middot; Since 2004 &middot; Hampton Roads, VA</p>
@@ -542,41 +618,23 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 </div>
 
 <!-- HOW IT WORKS -->
-<section class="sec" id="how">
-  <div class="si">
-    <span class="lbl reveal">How It Works</span>
-    <h2 class="reveal d1">Four Steps to Finished Product</h2>
-    <p class="sub reveal d1">From quote to delivery &mdash; we handle everything in-house.</p>
-    <div class="how-grid">
-      <div class="how-step">
-        <div class="how-n" aria-hidden="true">01</div>
-        <h3>Request a Quote</h3>
-        <p>Call, email, or submit our online form anytime. Share what you need and we&rsquo;ll handle the rest.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-n" aria-hidden="true">02</div>
-        <h3>Design &amp; Approval</h3>
-        <p>We refine your artwork at no charge. You approve a digital proof before anything goes into production.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-n" aria-hidden="true">03</div>
-        <h3>Production</h3>
-        <p>Screen printed, embroidered, DTF, leather badge, or custom patch &mdash; all handled in-house.</p>
-      </div>
-      <div class="how-step">
-        <div class="how-n" aria-hidden="true">04</div>
-        <h3>Free Delivery</h3>
-        <p>We deliver free to your door anywhere in Hampton Roads. Standard 5&ndash;10 business days.</p>
-      </div>
-    </div>
-    <div class="how-cta">
-      <p><strong>Most quotes returned the same day.</strong> No obligation, no pressure.</p>
-      <div class="how-cta-btns">
-        <a href="tel:+17575810004" class="btn btn-gold btn-sm">&#128222;&nbsp;Call Now</a>
-        <a href="#quote" class="btn btn-outline-white btn-sm">Submit a Quote &rarr;</a>
-      </div>
-    </div>
-  </div>
+<section id="how" class="how-img-wrap">
+  <img
+    src="how-it-works.png"
+    alt="How It Works — Send your logo, we design it, we produce it, we deliver it — Quality Silkscreens Hampton Roads VA"
+    loading="lazy"
+    onerror="this.parentElement.style.display='none'"
+  >
+</section>
+
+<!-- DECORATION METHODS -->
+<section id="services" class="how-img-wrap">
+  <img
+    src="decoration-methods.png"
+    alt="Decoration Methods — Embroidery, Screen Print, DTF Print, Patches — Quality Silkscreens Hampton Roads VA"
+    loading="lazy"
+    onerror="this.parentElement.style.display='none'"
+  >
 </section>
 
 <!-- PRODUCTS -->
@@ -587,78 +645,204 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
     <p class="sub reveal d1">One piece or a full uniform program &mdash; no order too small, no order too large.</p>
     <div class="prod-grid">
 
-      <div class="prod-card reveal d1">
+      <!-- FIX 9: all prod-cards are now <a href="#quote"> for keyboard/click accessibility -->
+      <a href="#quote" class="prod-card reveal d1">
         <div class="prod-top"><span class="prod-name">T-Shirts</span><span class="prod-tag">From $12/ea</span></div>
-        <div class="prod-img"><img src="images/tshirts.jpg" alt="Custom T-Shirts Hampton Roads VA" loading="lazy"></div>
+        <div class="prod-img"><img src="images/tshirts.jpg" alt="Custom T-Shirts Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="prod-foot">
-          <div class="prod-methods"><span class="prod-method">Comfort Colors</span><span class="prod-method">Bella+Canvas</span><span class="prod-method">Gildan</span><span class="prod-method">Hanes</span></div>
+          <div class="prod-methods"><span class="prod-method">Comfort Colors</span><span class="prod-method">Bella+Canvas</span><span class="prod-method">Gildan</span><span class="prod-method">Port &amp; Company</span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="prod-card reveal d2">
-        <div class="prod-top"><span class="prod-name">Hoodies &amp; Sweatshirts</span><span class="prod-tag">From $28/ea</span></div>
-        <div class="prod-img"><img src="images/hoodies.jpg" alt="Custom Hoodies Hampton Roads VA" loading="lazy"></div>
-        <div class="prod-foot">
-          <div class="prod-methods"><span class="prod-method">Comfort Colors</span><span class="prod-method">Champion</span><span class="prod-method">Independent Trading Co.</span><span class="prod-method">Gildan</span></div>
-        </div>
-      </div>
-
-      <div class="prod-card reveal d3">
-        <div class="prod-top"><span class="prod-name">Hats &amp; Caps</span><span class="prod-tag">From $18/ea</span></div>
-        <div class="prod-img"><img src="images/hats.jpg" alt="Custom Hats Hampton Roads VA" loading="lazy"></div>
-        <div class="prod-foot">
-          <div class="prod-methods"><span class="prod-method">New Era</span><span class="prod-method">Nike</span><span class="prod-method">Port Authority</span><span class="prod-method">OGIO</span></div>
-        </div>
-      </div>
-
-      <div class="prod-card reveal d1">
+      <a href="#quote" class="prod-card reveal d2">
         <div class="prod-top"><span class="prod-name">Polos &amp; Work Shirts</span><span class="prod-tag">From $22/ea</span></div>
-        <div class="prod-img"><img src="images/polos.jpg" alt="Custom Polos Hampton Roads VA" loading="lazy"></div>
+        <div class="prod-img"><img src="images/polos.jpg" alt="Custom Polos Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="prod-foot">
           <div class="prod-methods"><span class="prod-method">Nike</span><span class="prod-method">Under Armour</span><span class="prod-method">Port Authority</span><span class="prod-method">TravisMathew</span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="prod-card reveal d2">
+      <a href="#quote" class="prod-card reveal d3">
+        <div class="prod-top"><span class="prod-name">Hoodies &amp; Sweatshirts</span><span class="prod-tag">From $28/ea</span></div>
+        <div class="prod-img"><img src="images/hoodies.jpg" alt="Custom Hoodies Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="prod-foot">
+          <div class="prod-methods"><span class="prod-method">Comfort Colors</span><span class="prod-method">Champion</span><span class="prod-method">Bella+Canvas</span><span class="prod-method">Gildan</span></div>
+        </div>
+      </a>
+
+      <a href="#quote" class="prod-card reveal d1">
+        <div class="prod-top"><span class="prod-name">Hats &amp; Caps</span><span class="prod-tag">From $18/ea</span></div>
+        <div class="prod-img"><img src="images/hats.jpg" alt="Custom Hats Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="prod-foot">
+          <div class="prod-methods"><span class="prod-method">New Era</span><span class="prod-method">Nike</span><span class="prod-method">Port Authority</span><span class="prod-method">OGIO</span></div>
+        </div>
+      </a>
+
+      <a href="#quote" class="prod-card reveal d2">
         <div class="prod-top"><span class="prod-name">Outerwear &amp; Jackets</span><span class="prod-tag">From $38/ea</span></div>
-        <div class="prod-img"><img src="images/outerwear.jpg" alt="Custom Outerwear Hampton Roads VA" loading="lazy"></div>
+        <div class="prod-img"><img src="images/outerwear.jpg" alt="Custom Outerwear Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="prod-foot">
           <div class="prod-methods"><span class="prod-method">Carhartt</span><span class="prod-method">The North Face</span><span class="prod-method">Columbia</span><span class="prod-method">Eddie Bauer</span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="prod-card reveal d3">
-        <div class="prod-top"><span class="prod-name">Aprons</span><span class="prod-tag">From $14/ea</span></div>
-        <div class="prod-img"><img src="images/aprons.jpg" alt="Custom Aprons Hampton Roads VA" loading="lazy"></div>
+      <a href="#quote" class="prod-card reveal d3">
+        <div class="prod-top"><span class="prod-name">Safety Gear &amp; Work Accessories</span><span class="prod-tag">Custom quoted</span></div>
+        <div class="prod-img"><img src="images/safety-gear.jpg" alt="Custom Safety Gear and Work Accessories Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="prod-foot">
-          <div class="prod-methods"><span class="prod-method">Port Authority</span><span class="prod-method">Gildan</span></div>
+          <div class="prod-methods"><span class="prod-method">Hi-Vis Vests</span><span class="prod-method">Work Aprons</span><span class="prod-method">Safety Tees</span><span class="prod-method">Hard Hat Accessories</span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="prod-card reveal d1">
-        <div class="prod-top"><span class="prod-name">Bags &amp; Accessories</span><span class="prod-tag">From $12/ea</span></div>
-        <div class="prod-img"><img src="images/bags.jpg" alt="Custom Bags Hampton Roads VA" loading="lazy"></div>
+      <a href="#quote" class="prod-card reveal d1">
+        <div class="prod-top"><span class="prod-name">Bags, Backpacks &amp; More</span><span class="prod-tag">From $12/ea</span></div>
+        <div class="prod-img"><img src="images/bags.jpg" alt="Custom Bags Backpacks and Accessories Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="prod-foot">
           <div class="prod-methods"><span class="prod-method">OGIO</span><span class="prod-method">Port Authority</span><span class="prod-method">Alternative Apparel</span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="prod-card reveal d2">
+      <a href="#quote" class="prod-card reveal d2">
         <div class="prod-top"><span class="prod-name">Jerseys &amp; Uniforms</span><span class="prod-tag">Custom quoted</span></div>
-        <div class="prod-img"><img src="images/jerseys.jpg" alt="Custom Jerseys Hampton Roads VA" loading="lazy"></div>
+        <div class="prod-img"><img src="images/jerseys.jpg" alt="Custom Jerseys Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="prod-foot">
           <div class="prod-methods"><span class="prod-method">Sport-Tek</span><span class="prod-method">Russell Athletic</span><span class="prod-method">Under Armour</span><span class="prod-method">Adidas</span></div>
         </div>
-      </div>
+      </a>
 
-      <div class="prod-card reveal d3">
-        <div class="prod-top"><span class="prod-name">Patches &amp; Leather Badges</span><span class="prod-tag">Custom quoted</span></div>
-        <div class="prod-img"><img src="images/patches.jpg" alt="Custom Patches and Leather Badges Hampton Roads VA" loading="lazy"></div>
-        <div class="prod-foot">
-          <div class="prod-methods"><span class="prod-method">Embroidered</span><span class="prod-method">Woven</span><span class="prod-method">Leather</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS BANNER -->
+<div class="how-img-wrap">
+  <img
+    src="brands-banner.png"
+    alt="Top Brands — Nike, Carhartt, New Era, The North Face, Port Authority, Sport-Tek, OGIO, Eddie Bauer — Quality Silkscreens"
+    loading="lazy"
+    onerror="this.parentElement.style.display='none'"
+  >
+</div>
+
+<!-- QUOTE -->
+<section class="sec" id="quote">
+  <div class="si">
+    <div class="quote-card reveal">
+      <span class="lbl lbl-light">Get Started</span>
+      <h2 class="light" style="margin-bottom:6px;">Request a Free Quote</h2>
+      <p style="color:rgba(255,255,255,.4);font-size:.88rem;margin-bottom:28px;">Submit your quote request anytime &mdash; we respond within one business day. For the fastest response, call <a href="tel:+17575810004" style="color:var(--gold);font-weight:700;">(757) 581-0004</a>.</p>
+
+      <div class="form-err-banner" id="formErrBanner" role="alert" aria-live="polite">Please fill in all required fields before submitting.</div>
+
+      <form id="quoteForm" name="quote" method="POST" data-netlify="true" novalidate>
+        <input type="hidden" name="form-name" value="quote">
+        <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" placeholder="Jane" required autocomplete="given-name">
+            <span class="field-error" id="err-first_name">Please enter your first name.</span>
+          </div>
+          <div class="field">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Smith" autocomplete="family-name">
+          </div>
+          <div class="field">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email">
+            <span class="field-error" id="err-email">Please enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(757) 000-0000" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="service">Service Needed *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service&hellip;</option>
+              <option>Custom T-Shirts</option>
+              <option>Custom Hoodies &amp; Sweatshirts</option>
+              <option>Custom Hats &amp; Caps</option>
+              <option>Screen Printing</option>
+              <option>Embroidery</option>
+              <option>DTF Transfers</option>
+              <option>Leather Badges</option>
+              <option>Custom Patches</option>
+              <option>Heat Transfers</option>
+              <option>Outerwear &amp; Jackets</option>
+              <option>Polos &amp; Work Shirts</option>
+              <option>Bags &amp; Accessories</option>
+              <option>Jerseys &amp; Uniforms</option>
+              <option>Safety Gear &amp; Work Accessories</option>
+              <option>Wholesale Apparel (Blank)</option>
+              <option>Not Sure &mdash; Help Me Decide</option>
+            </select>
+            <span class="field-error" id="err-service">Please select a service.</span>
+          </div>
+          <div class="field">
+            <label for="quantity">Approx. Quantity</label>
+            <select id="quantity" name="quantity">
+              <option value="" disabled selected>How many pieces?</option>
+              <option>Under 12</option>
+              <option>12&ndash;24</option>
+              <option>25&ndash;49</option>
+              <option>50&ndash;99</option>
+              <option>100&ndash;249</option>
+              <option>250&ndash;499</option>
+              <option>500&ndash;999</option>
+              <option>1,000+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="deadline">Needed By</label>
+            <input type="text" id="deadline" name="deadline" placeholder="Date or ASAP">
+          </div>
+          <div class="field">
+            <label for="express">Express Turnaround?</label>
+            <select id="express" name="express">
+              <option value="" disabled selected>Do you need express?</option>
+              <option>Standard (5&ndash;10 business days)</option>
+              <option>Express if available (2&ndash;5 business days)</option>
+              <option>Not sure &mdash; let me know options</option>
+            </select>
+          </div>
         </div>
-      </div>
 
+        <div class="field">
+          <label for="details">Order Details</label>
+          <textarea id="details" name="details" placeholder="Garment type, colors, print locations, logo details, patch or leather badge specs &mdash; the more you share, the faster we can quote you."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Upload Artwork &nbsp;<span style="font-size:.68rem;color:rgba(255,255,255,.2);text-transform:none;letter-spacing:0;font-weight:400;">(optional &mdash; up to 5 files)</span></label>
+          <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload artwork files — drag and drop or click to browse">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <p>Drag &amp; drop files here</p>
+            <small>JPG, PNG, PDF, AI, EPS, SVG &mdash; up to 5 files, 20 MB each</small>
+            <label class="browse-btn" for="fileInput">Choose Files</label>
+          </div>
+          <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.ai,.eps,.svg,.bmp" style="display:none;" aria-label="Upload artwork files">
+          <div class="thumbs" id="thumbs" aria-live="polite"></div>
+          <span class="upload-status" id="uploadStatus" aria-live="polite"></span>
+          <input type="hidden" name="design_files_urls" id="fileUrls">
+        </div>
+
+        <div class="form-foot">
+          <button type="submit" id="submitBtn" class="btn btn-gold">Send Quote Request &rarr;</button>
+          <span class="form-note">Or call: <a href="tel:+17575810004">(757) 581-0004</a> &bull; <a href="mailto:quote@qualitysilkscreens.com">quote@qualitysilkscreens.com</a></span>
+        </div>
+      </form>
+
+      <div class="success-box" id="successBox" role="alert" aria-live="polite">
+        <div class="success-icon" aria-hidden="true">&#10003;</div>
+        <h3>Quote Request Received</h3>
+        <p>We&rsquo;ll respond within one business day. For urgent orders call <a href="tel:+17575810004">(757) 581-0004</a>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -694,81 +878,23 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
   </div>
 </div>
 
-<!-- SERVICES -->
-<section class="sec" id="services">
-  <div class="si">
-    <span class="lbl reveal">Decoration Methods</span>
-    <h2 class="reveal d1">Every Method. One Shop.</h2>
-    <p class="sub reveal d1">All decoration handled in-house &mdash; no middlemen, no markups, no surprises.</p>
-    <div class="svc-grid">
-      <div class="svc reveal d1">
-        <div class="svc-icon" aria-hidden="true">&#128424;</div>
-        <h3>Screen Printing</h3>
-        <p>Bold, vibrant, durable prints. Best for bulk orders, teams, events, and branded uniforms.</p>
-        <span class="svc-tag">Best for bulk</span>
-      </div>
-      <div class="svc reveal d2">
-        <div class="svc-icon" aria-hidden="true">&#129525;</div>
-        <h3>Embroidery</h3>
-        <p>Stitched logos for polos, hats, jackets, and uniforms. Professional and long-lasting.</p>
-        <span class="svc-tag">Professional grade</span>
-      </div>
-      <div class="svc reveal d3">
-        <div class="svc-icon" aria-hidden="true">&#9889;</div>
-        <h3>DTF Transfers</h3>
-        <p>Full-color photographic prints with no minimum. Ideal for small runs and complex artwork.</p>
-        <span class="svc-tag">No minimums</span>
-      </div>
-      <div class="svc reveal d1">
-        <div class="svc-icon" aria-hidden="true">&#128217;</div>
-        <h3>Leather Badges</h3>
-        <p>Custom leather patches for hats, jackets, and bags. Premium look, unique finish. No one else does this locally.</p>
-        <span class="svc-tag">Premium finish</span>
-      </div>
-      <div class="svc reveal d2">
-        <div class="svc-icon" aria-hidden="true">&#127885;</div>
-        <h3>Custom Patches</h3>
-        <p>Woven and embroidered patches for military units, law enforcement, clubs, and uniforms. Made to exact spec.</p>
-        <span class="svc-tag">Military-grade</span>
-      </div>
-      <div class="svc reveal d3">
-        <div class="svc-icon" aria-hidden="true">&#128293;</div>
-        <h3>Heat Transfers</h3>
-        <p>Fast, flexible decoration for names, numbers, and quick-turn items. Great for smaller quantities.</p>
-        <span class="svc-tag">Fast turnaround</span>
-      </div>
-      <div class="svc reveal d1">
-        <div class="svc-icon" aria-hidden="true">&#127912;</div>
-        <h3>Free Design Help</h3>
-        <p>No logo? No problem. We create or clean up your artwork at no charge before production begins.</p>
-        <span class="svc-tag">Included free</span>
-      </div>
-      <div class="svc reveal d2">
-        <div class="svc-icon" aria-hidden="true">&#128230;</div>
-        <h3>Wholesale Apparel</h3>
-        <p>Nike, Carhartt, North Face, BELLA+CANVAS, Gildan, Port Authority &amp; 50+ more &mdash; blank or decorated.</p>
-        <span class="svc-tag">50+ brands</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- GALLERY -->
 <section class="sec bg-off" id="gallery">
   <div class="si">
-    <span class="lbl reveal">Our Work</span>
-    <h2 class="reveal d1">20 Years of Real Work.</h2>
-    <p class="sub reveal d1">Hampton Roads businesses, teams, military units, churches, and events &mdash; outfitted right.</p>
+    <span class="lbl reveal">What We Do</span>
+    <h2 class="reveal d1">Hampton Roads' Custom Apparel Shop.</h2>
+    <p class="sub reveal d1">Businesses, teams, military units, churches, and events &mdash; outfitted right since 2004.</p>
     <div class="gal-grid reveal">
-      <div class="gal-item"><img src="gallery-1.jpg" alt="Custom t-shirts and hoodies Hampton Roads VA" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-2.jpg" alt="Screen printing Hampton Roads VA" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-3.jpg" alt="Custom bags and accessories" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-4.jpg" alt="Custom outerwear and jackets" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-5.jpg" alt="Custom embroidered hats" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-6.jpg" alt="Custom apparel lineup" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-7.jpg" alt="Custom polos and bags" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-8.jpg" alt="Custom branded accessories" loading="lazy"></div>
-      <div class="gal-item"><img src="gallery-9.jpg" alt="Custom embroidered polo" loading="lazy"></div>
+      <!-- FIX 3 & 6: gallery images now open lightbox on click; onerror hides broken images -->
+      <div class="gal-item"><img src="gallery-1.jpg" alt="Custom t-shirts and hoodies Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-2.jpg" alt="Screen printing Hampton Roads VA" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-3.jpg" alt="Custom bags and accessories" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-4.jpg" alt="Custom outerwear and jackets" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-5.jpg" alt="Custom embroidered hats" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-6.jpg" alt="Custom apparel lineup" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-7.jpg" alt="Custom polos and bags" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-8.jpg" alt="Custom branded accessories" loading="lazy" onerror="this.style.display='none'"></div>
+      <div class="gal-item"><img src="gallery-9.jpg" alt="Custom embroidered polo" loading="lazy" onerror="this.style.display='none'"></div>
     </div>
   </div>
 </section>
@@ -793,12 +919,12 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
         <div class="vet-pill">&#127894;&nbsp;Veteran-Owned Business</div>
       </div>
       <div class="about-imgs" style="align-self:start;">
-        <div class="about-img"><img src="gallery-1.jpg" alt="Custom apparel by Quality Silkscreens" loading="lazy"></div>
-        <div class="about-img"><img src="gallery-2.jpg" alt="Screen printing process" loading="lazy"></div>
-        <div class="about-img"><img src="gallery-3.jpg" alt="Custom bags" loading="lazy"></div>
-        <div class="about-img"><img src="gallery-4.jpg" alt="Custom outerwear" loading="lazy"></div>
-        <div class="about-img"><img src="gallery-5.jpg" alt="Custom embroidered hats" loading="lazy"></div>
-        <div class="about-img"><img src="gallery-6.jpg" alt="Apparel lineup" loading="lazy"></div>
+        <div class="about-img"><img src="gallery-1.jpg" alt="Custom apparel by Quality Silkscreens" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="about-img"><img src="gallery-2.jpg" alt="Screen printing process" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="about-img"><img src="gallery-3.jpg" alt="Custom bags" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="about-img"><img src="gallery-4.jpg" alt="Custom outerwear" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="about-img"><img src="gallery-5.jpg" alt="Custom embroidered hats" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="about-img"><img src="gallery-6.jpg" alt="Apparel lineup" loading="lazy" onerror="this.style.display='none'"></div>
       </div>
     </div>
     <div class="stats-strip reveal" style="margin-top:48px;" role="list" aria-label="Business stats">
@@ -807,42 +933,6 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
       <div class="stat-item" role="listitem"><div class="stat-num">0</div><div class="stat-lbl">Order<br>Minimums</div></div>
       <div class="stat-item" role="listitem"><div class="stat-num">50+</div><div class="stat-lbl">Premium Brands<br>Available</div></div>
       <div class="stat-item" role="listitem"><div class="stat-num">Free</div><div class="stat-lbl">Local Delivery<br>Always</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- BRANDS -->
-<section class="sec">
-  <div class="si">
-    <span class="lbl reveal">Brands We Carry</span>
-    <h2 class="reveal d1">50+ Top Brands. Blank or Decorated.</h2>
-    <p class="sub reveal d1">We source from the best manufacturers. Have a specific brand in mind? Just ask &mdash; we can almost always get it.</p>
-    <div class="brand-chips reveal">
-      <span class="brand-chip">Nike</span>
-      <span class="brand-chip">Carhartt</span>
-      <span class="brand-chip">The North Face</span>
-      <span class="brand-chip">Adidas</span>
-      <span class="brand-chip">Under Armour</span>
-      <span class="brand-chip">Columbia</span>
-      <span class="brand-chip">Champion</span>
-      <span class="brand-chip">Hanes</span>
-      <span class="brand-chip">Gildan</span>
-      <span class="brand-chip">Fruit of the Loom</span>
-      <span class="brand-chip">New Era</span>
-      <span class="brand-chip">Brooks Brothers</span>
-      <span class="brand-chip">Eddie Bauer</span>
-      <span class="brand-chip">American Apparel</span>
-      <span class="brand-chip">Comfort Colors</span>
-      <span class="brand-chip">BELLA+CANVAS</span>
-      <span class="brand-chip">Port Authority</span>
-      <span class="brand-chip">Russell Athletic</span>
-      <span class="brand-chip">Sport-Tek</span>
-      <span class="brand-chip">Next Level Apparel</span>
-      <span class="brand-chip">Independent Trading Co.</span>
-      <span class="brand-chip">Alternative Apparel</span>
-      <span class="brand-chip">OGIO</span>
-      <span class="brand-chip">TravisMathew</span>
-      <span class="brand-chip">&amp; many more&hellip;</span>
     </div>
   </div>
 </section>
@@ -975,133 +1065,11 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
   </div>
 </section>
 
-<!-- QUOTE -->
-<section class="sec bg-off" id="quote">
-  <div class="si">
-    <div class="quote-card reveal">
-      <span class="lbl lbl-light">Get Started</span>
-      <h2 class="light" style="margin-bottom:6px;">Request a Free Quote</h2>
-      <p style="color:rgba(255,255,255,.4);font-size:.88rem;margin-bottom:28px;">Submit your quote request anytime &mdash; we respond within one business day. For the fastest response, call <a href="tel:+17575810004" style="color:var(--gold);font-weight:700;">(757) 581-0004</a>.</p>
-
-      <div class="form-err-banner" id="formErrBanner" role="alert" aria-live="polite">Please fill in all required fields before submitting.</div>
-
-      <form id="quoteForm" name="quote" method="POST" data-netlify="true" novalidate>
-        <input type="hidden" name="form-name" value="quote">
-        <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="first_name">First Name *</label>
-            <input type="text" id="first_name" name="first_name" placeholder="Jane" required autocomplete="given-name">
-            <span class="field-error" id="err-first_name">Please enter your first name.</span>
-          </div>
-          <div class="field">
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" placeholder="Smith" autocomplete="family-name">
-          </div>
-          <div class="field">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email">
-            <span class="field-error" id="err-email">Please enter a valid email address.</span>
-          </div>
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(757) 000-0000" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="service">Service Needed *</label>
-            <select id="service" name="service" required>
-              <option value="" disabled selected>Select a service&hellip;</option>
-              <option>Custom T-Shirts</option>
-              <option>Custom Hoodies &amp; Sweatshirts</option>
-              <option>Custom Hats &amp; Caps</option>
-              <option>Screen Printing</option>
-              <option>Embroidery</option>
-              <option>DTF Transfers</option>
-              <option>Leather Badges</option>
-              <option>Custom Patches</option>
-              <option>Heat Transfers</option>
-              <option>Outerwear &amp; Jackets</option>
-              <option>Polos &amp; Work Shirts</option>
-              <option>Bags &amp; Accessories</option>
-              <option>Jerseys &amp; Uniforms</option>
-              <option>Wholesale Apparel (Blank)</option>
-              <option>Not Sure &mdash; Help Me Decide</option>
-            </select>
-            <span class="field-error" id="err-service">Please select a service.</span>
-          </div>
-          <div class="field">
-            <label for="quantity">Approx. Quantity</label>
-            <select id="quantity" name="quantity">
-              <option value="" disabled selected>How many pieces?</option>
-              <option>Under 12</option>
-              <option>12&ndash;24</option>
-              <option>25&ndash;49</option>
-              <option>50&ndash;99</option>
-              <option>100&ndash;249</option>
-              <option>250&ndash;499</option>
-              <option>500&ndash;999</option>
-              <option>1,000+</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="deadline">Needed By</label>
-            <input type="text" id="deadline" name="deadline" placeholder="Date or ASAP">
-          </div>
-          <div class="field">
-            <label for="express">Express Turnaround?</label>
-            <select id="express" name="express">
-              <option value="" disabled selected>Do you need express?</option>
-              <option>Standard (5&ndash;10 business days)</option>
-              <option>Express if available (2&ndash;5 business days)</option>
-              <option>Not sure &mdash; let me know options</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="details">Order Details</label>
-          <textarea id="details" name="details" placeholder="Garment type, colors, print locations, logo details, patch or leather badge specs &mdash; the more you share, the faster we can quote you."></textarea>
-        </div>
-
-        <div class="field">
-          <label>Upload Artwork &nbsp;<span style="font-size:.68rem;color:rgba(255,255,255,.2);text-transform:none;letter-spacing:0;font-weight:400;">(optional &mdash; up to 5 files)</span></label>
-          <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Upload artwork files — drag and drop or click to browse">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-              <polyline points="17 8 12 3 7 8"/>
-              <line x1="12" y1="3" x2="12" y2="15"/>
-            </svg>
-            <p>Drag &amp; drop files here</p>
-            <small>JPG, PNG, PDF, AI, EPS, SVG &mdash; up to 5 files, 20 MB each</small>
-            <label class="browse-btn" for="fileInput">Choose Files</label>
-          </div>
-          <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.ai,.eps,.svg,.bmp" style="display:none;" aria-label="Upload artwork files">
-          <div class="thumbs" id="thumbs" aria-live="polite"></div>
-          <span class="upload-status" id="uploadStatus" aria-live="polite"></span>
-          <input type="hidden" name="design_files_urls" id="fileUrls">
-        </div>
-
-        <div class="form-foot">
-          <button type="submit" id="submitBtn" class="btn btn-gold">Send Quote Request &rarr;</button>
-          <span class="form-note">Or call: <a href="tel:+17575810004">(757) 581-0004</a> &bull; <a href="mailto:quote@qualitysilkscreens.com">quote@qualitysilkscreens.com</a></span>
-        </div>
-      </form>
-
-      <div class="success-box" id="successBox" role="alert" aria-live="polite">
-        <div class="success-icon" aria-hidden="true">&#10003;</div>
-        <h3>Quote Request Received</h3>
-        <p>We&rsquo;ll respond within one business day. For urgent orders call <a href="tel:+17575810004">(757) 581-0004</a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PRE-FOOTER CTA -->
 <div class="prefooter">
   <div class="prefooter-inner">
     <div>
-      <h3>Ready to Get Started?</h3>
+      <h3>Ready to Get <span>Started?</span></h3>
       <p>Same-day quotes. Free design help. Free delivery across Hampton Roads. No minimums, no surprises.</p>
     </div>
     <div class="prefooter-btns">
@@ -1115,7 +1083,6 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 <footer>
   <div class="foot-inner">
 
-    <!-- Col 1: Brand -->
     <div>
       <div class="foot-brand-name">Quality Silkscreens</div>
       <p class="foot-tagline">Veteran-owned custom apparel serving Hampton Roads since 2004. Screen printing, embroidery, DTF, leather badges &amp; more.</p>
@@ -1135,43 +1102,20 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
       </div>
     </div>
 
-    <!-- Col 2: Services -->
-    <div class="foot-col">
-      <h4>Services</h4>
-      <a href="#services">Screen Printing</a>
-      <a href="#services">Embroidery</a>
-      <a href="#services">DTF Transfers</a>
-      <a href="#services">Leather Badges</a>
-      <a href="#services">Custom Patches</a>
-      <a href="#services">Heat Transfers</a>
-      <a href="#services">Free Design Help</a>
-      <a href="#services">Wholesale Apparel</a>
-    </div>
-
-    <!-- Col 3: Products -->
-    <div class="foot-col">
-      <h4>Products</h4>
-      <a href="#products">Custom T-Shirts</a>
-      <a href="#products">Hoodies &amp; Sweatshirts</a>
-      <a href="#products">Hats &amp; Caps</a>
-      <a href="#products">Polos &amp; Work Shirts</a>
-      <a href="#products">Outerwear &amp; Jackets</a>
-      <a href="#products">Bags &amp; Accessories</a>
-      <a href="#products">Jerseys &amp; Uniforms</a>
-      <a href="#products">Patches &amp; Leather Badges</a>
-    </div>
-
-    <!-- Col 4: Delivery + Info -->
-    <div class="foot-col">
+    <!-- FIX 5: removed style="grid-column:span 2" — footer is now 3-col grid so this
+         column sits naturally in col 2, spanning into col 3 via grid-column:span 2 of the inner cities grid -->
+    <div class="foot-col" style="grid-column:span 2;">
       <h4>Free Delivery To</h4>
-      <a href="#quote">Virginia Beach</a>
-      <a href="#quote">Norfolk</a>
-      <a href="#quote">Chesapeake</a>
-      <a href="#quote">Hampton</a>
-      <a href="#quote">Newport News</a>
-      <a href="#quote">Portsmouth</a>
-      <a href="#quote">Suffolk</a>
-      <a href="#quote" class="foot-highlight" style="margin-top:4px;">+ All of Hampton Roads</a>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+        <a href="#quote">Virginia Beach</a>
+        <a href="#quote">Hampton</a>
+        <a href="#quote">Norfolk</a>
+        <a href="#quote">Newport News</a>
+        <a href="#quote">Chesapeake</a>
+        <a href="#quote">Portsmouth</a>
+        <a href="#quote">Suffolk</a>
+        <a href="#quote" class="foot-highlight">+ All of Hampton Roads</a>
+      </div>
     </div>
 
   </div>
@@ -1187,7 +1131,7 @@ footer{background:#080e18;border-top:1px solid rgba(255,255,255,.05);}
 <!-- STICKY BUTTONS -->
 <div class="sticky" role="complementary" aria-label="Quick contact">
   <a href="tel:+17575810004" class="sticky-call" aria-label="Call Quality Silkscreens">&#128222;&nbsp;<span>Call Us</span></a>
-  <a href="#quote" class="sticky-quote btn-navy" aria-label="Get a free quote">&#9998;&nbsp;<span>Free Quote</span></a>
+  <a href="#quote" class="sticky-quote" aria-label="Get a free quote">&#9998;&nbsp;<span>Free Quote</span></a>
 </div>
 
 <!-- IMAGE LIGHTBOX -->
@@ -1263,12 +1207,40 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
   });
 });
 
+/* ── LIGHTBOX (shared by gallery + upload thumbnails) ── */
+var lightbox      = document.getElementById('imgLightbox');
+var lightboxImg   = document.getElementById('lightboxImg');
+var lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, altText){
+  lightboxImg.src = src;
+  lightboxImg.alt = altText || '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  lightboxClose.focus();
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', function(e){ if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+
+/* FIX 3: Wire gallery images to lightbox */
+document.querySelectorAll('.gal-item img').forEach(function(img){
+  img.addEventListener('click', function(){
+    if (img.src) openLightbox(img.src, img.alt);
+  });
+});
+
 /* ── UPLOADCARE FILE UPLOAD ── */
 (function(){
-  var PUB = '25e230fca4b810d2582f';
-  var CDN = 'https://ucarecdn.com/';
-  var MAX = 5;
+  var PUB  = '25e230fca4b810d2582f';
+  var CDN  = 'https://ucarecdn.com/';
+  var MAX  = 5;
   var MAXB = 20 * 1024 * 1024;
+  var UPLOAD_TIMEOUT_MS = 30000;
   var IMGS = ['jpg','jpeg','png','gif','webp','svg','bmp'];
   var uploads = [];
 
@@ -1285,6 +1257,7 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
 
   function syncUrls(){
     var done    = uploads.filter(function(u){ return u.url; });
+    /* FIX 1: check the uploads array directly — not the status text */
     var pending = uploads.filter(function(u){ return !u.url && !u.fail; });
     urlsEl.value = done.map(function(u){ return u.url; }).join(',');
     if (pending.length){
@@ -1294,6 +1267,11 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
     } else {
       setStatus('');
     }
+  }
+
+  /* FIX 1: exported so form submit guard can access it */
+  function hasPendingUploads(){
+    return uploads.some(function(u){ return !u.url && !u.fail; });
   }
 
   function renderThumbs(){
@@ -1307,7 +1285,6 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
       var box = document.createElement('div');
       box.className = 'thumb ' + state;
 
-      /* Preview area */
       var preview = document.createElement('div');
       preview.className = 'thumb-preview';
 
@@ -1324,7 +1301,6 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
         })(u.dataUrl, u.name));
         preview.appendChild(img);
       } else {
-        /* Icon per file type */
         var icons = {pdf:'📄',ai:'🎨',eps:'🎨',svg:'🖼',psd:'🎨',doc:'📝',docx:'📝'};
         var ed = document.createElement('div');
         ed.className = 'thumb-ext';
@@ -1339,13 +1315,11 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
       }
       box.appendChild(preview);
 
-      /* File name */
       var nm = document.createElement('div');
       nm.className = 'thumb-name';
       nm.textContent = u.name;
       box.appendChild(nm);
 
-      /* Progress bar */
       var barWrap = document.createElement('div');
       barWrap.className = 'thumb-bar-wrap';
       var bar = document.createElement('div');
@@ -1353,13 +1327,11 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
       barWrap.appendChild(bar);
       box.appendChild(barWrap);
 
-      /* State label */
       var stateEl = document.createElement('div');
       stateEl.className = 'thumb-state';
       stateEl.textContent = uploading ? 'Uploading\u2026' : (u.url ? '\u2713 Ready' : '\u2715 Failed');
       box.appendChild(stateEl);
 
-      /* Remove button */
       var rm = document.createElement('button');
       rm.type = 'button';
       rm.className = 'thumb-rm';
@@ -1379,45 +1351,44 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
     });
   }
 
-  /* Lightbox */
-  var lightbox      = document.getElementById('imgLightbox');
-  var lightboxImg   = document.getElementById('lightboxImg');
-  var lightboxClose = document.getElementById('lightboxClose');
-  function openLightbox(src, name){
-    lightboxImg.src = src;
-    lightboxImg.alt = name;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(){
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLightbox(); });
-
+  /* FIX 2: upload with 30s timeout via AbortController */
   function doUpload(file, entry){
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timeoutId = setTimeout(function(){
+      if (controller) controller.abort();
+      entry.fail = true;
+      renderThumbs();
+      setStatus('Upload timed out \u2014 email files to quote@qualitysilkscreens.com', 'fail');
+    }, UPLOAD_TIMEOUT_MS);
+
     var fd = new FormData();
     fd.append('UPLOADCARE_PUB_KEY', PUB);
     fd.append('UPLOADCARE_STORE', '1');
     fd.append('file', file, file.name);
 
-    fetch('https://upload.uploadcare.com/base/', {method:'POST', body:fd})
+    var fetchOpts = {method:'POST', body:fd};
+    if (controller) fetchOpts.signal = controller.signal;
+
+    fetch('https://upload.uploadcare.com/base/', fetchOpts)
       .then(function(r){
+        clearTimeout(timeoutId);
         if (!r.ok) throw new Error('Upload failed');
         return r.json();
       })
       .then(function(j){
+        clearTimeout(timeoutId);
         entry.url = j.file ? CDN + j.file + '/' : null;
         entry.fail = !entry.url;
         renderThumbs();
         syncUrls();
       })
-      .catch(function(){
+      .catch(function(err){
+        clearTimeout(timeoutId);
+        if (err && err.name === 'AbortError') return; /* timeout handler already ran */
         entry.fail = true;
         renderThumbs();
         setStatus('Upload failed \u2014 email files to quote@qualitysilkscreens.com', 'fail');
+        syncUrls();
       });
   }
 
@@ -1445,12 +1416,15 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
     syncUrls();
   }
 
-  zone.addEventListener('click',     function(e){ if (e.target.tagName==='LABEL'||e.target.tagName==='INPUT') return; inp.click(); });
+  zone.addEventListener('click',     function(e){ if (e.target.tagName === 'LABEL' || e.target.tagName === 'INPUT') return; inp.click(); });
   zone.addEventListener('dragover',  function(e){ e.preventDefault(); zone.classList.add('over'); });
   zone.addEventListener('dragleave', function(e){ if (!zone.contains(e.relatedTarget)) zone.classList.remove('over'); });
   zone.addEventListener('drop',      function(e){ e.preventDefault(); zone.classList.remove('over'); handleFiles(e.dataTransfer.files); });
-  zone.addEventListener('keydown',   function(e){ if (e.key==='Enter'||e.key===' '){ e.preventDefault(); inp.click(); } });
-  inp.addEventListener('change',     function(){ if (inp.files.length) handleFiles(inp.files); inp.value=''; });
+  zone.addEventListener('keydown',   function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); inp.click(); } });
+  inp.addEventListener('change',     function(){ if (inp.files.length) handleFiles(inp.files); inp.value = ''; });
+
+  /* Expose pending check for form submit */
+  window._qsHasPendingUploads = hasPendingUploads;
 }());
 
 /* ── QUOTE FORM ── */
@@ -1464,6 +1438,13 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
     var errEl = document.getElementById(errId);
     if (field) field.classList.toggle('err', show);
     if (errEl) errEl.classList.toggle('show', show);
+  }
+
+  function clearFieldError(field, errId){
+    if (field) field.classList.remove('err');
+    var errEl = document.getElementById(errId);
+    if (errEl) errEl.classList.remove('show');
+    banner.classList.remove('show');
   }
 
   form.addEventListener('submit', function(e){
@@ -1494,11 +1475,13 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
       return;
     }
 
-    /* Block submit while files are still uploading */
-    var statusEl = document.getElementById('uploadStatus');
-    if (statusEl && statusEl.textContent.indexOf('Uploading') > -1){
-      statusEl.textContent = 'Please wait for file uploads to finish\u2026';
-      statusEl.className = 'upload-status fail';
+    /* FIX 1: use uploads array state, not status text */
+    if (window._qsHasPendingUploads && window._qsHasPendingUploads()){
+      var statusEl = document.getElementById('uploadStatus');
+      if (statusEl){
+        statusEl.textContent = 'Please wait for file uploads to finish\u2026';
+        statusEl.className = 'upload-status fail';
+      }
       return;
     }
 
@@ -1507,14 +1490,14 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
 
     fetch('/', {
       method: 'POST',
-      headers: {'Content-Type':'application/x-www-form-urlencoded'},
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       body: new URLSearchParams(new FormData(form)).toString()
     })
     .then(function(r){
       if (r.ok){
         form.style.display = 'none';
         box.style.display = 'block';
-        box.scrollIntoView({behavior:'smooth', block:'center'});
+        box.scrollIntoView({behavior: 'smooth', block: 'center'});
       } else {
         throw new Error('Server error: ' + r.status);
       }
@@ -1524,19 +1507,18 @@ document.querySelectorAll('.faq-btn').forEach(function(btn){
       btn.textContent = 'Send Quote Request \u2192';
       banner.textContent = 'Something went wrong. Please call (757)\u00a0581-0004 or email quote@qualitysilkscreens.com.';
       banner.classList.add('show');
-      banner.scrollIntoView({behavior:'smooth', block:'nearest'});
+      banner.scrollIntoView({behavior: 'smooth', block: 'nearest'});
     });
   });
 
-  /* Clear errors on input */
+  /* FIX 8: clear errors on both input and blur */
   ['first_name','email','service'].forEach(function(name){
     var el = form.querySelector('[name=' + name + ']');
     if (!el) return;
-    el.addEventListener('input', function(){
-      el.classList.remove('err');
-      var errEl = document.getElementById('err-' + name);
-      if (errEl) errEl.classList.remove('show');
-      banner.classList.remove('show');
+    ['input','blur','change'].forEach(function(evtType){
+      el.addEventListener(evtType, function(){
+        clearFieldError(el, 'err-' + name);
+      });
     });
   });
 }());
